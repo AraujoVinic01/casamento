@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.3 — 01/11/2026
+- Botão "Confirmar presença" abre o formulário do Jotform (o mesmo do QR Code impresso).
+
 ## v0.3.2 — 01/11/2026
 - Correção urgente: a v0.3.1 tinha uma vírgula faltando na lista de presentes, o que parou o código do site (sem fotos, presentes e galeria). Corrigido.
 - build.sh agora checa o código antes de gerar a versão de hospedagem.
