@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.1 — 01/11/2026
+- "Valor livre" / "Any amount" passa a ser o primeiro presente da lista.
+
 ## v0.3.0 — 01/11/2026 (dados reais de pagamento)
 - Euro: conta conjunta Revolut (Gabriela Ciweck & Vinicius Araujo), IBAN IE32 REVO 9903 6017 2606 31, BIC REVOIE23.
 - Real: chave Pix de e-mail vini01araujo@hotmail.com; QR Code e copia e cola gerados com ela.

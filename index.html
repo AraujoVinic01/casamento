@@ -361,7 +361,7 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.3.0",
+  version: "v0.3.1",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
@@ -382,6 +382,7 @@ const CONFIG = {
   },
   photos: ["images/galeria-1.jpg", "images/galeria-2.jpg", "images/galeria-3.jpg", "images/galeria-4.jpg", "images/galeria-5.jpg", "images/galeria-6.jpg"],   // fotos da galeria (quadradas)
   gifts: [
+    { id: "livre",    eur: null, icon: "Livre", photo: "images/livre.jpg", pt: ["Valor livre", "Você escolhe quanto quer dar."], en: ["Any amount", "You choose how much to give."] }
     { id: "jantar",   eur: 50,  icon: "Jantar", photo: "images/jantar.jpg", pt: ["Jantar na lua de mel", "Um jantar especial só nós dois."], en: ["Honeymoon dinner", "A special dinner for the two of us."] },
     { id: "passeio",  eur: 80,  icon: "Passeio", photo: "images/barco.jpg", pt: ["Passeio de barco", "Um dia no mar durante a viagem."], en: ["Boat trip", "A day on the water during the trip."] },
     { id: "hotel",    eur: 120, icon: "Hotel", photo: "images/hotel.jpg",  pt: ["Uma noite de hotel", "A primeira noite da lua de mel."], en: ["A night at the hotel", "The first night of our honeymoon."] },
@@ -389,7 +390,6 @@ const CONFIG = {
     { id: "casa",     eur: 150, icon: "Casa", photo: "images/casa.jpg",   pt: ["Fundo da primeira casa", "O começo do nosso lar juntos."], en: ["First home fund", "The start of our home together."] },
     { id: "sofa",     eur: 100, icon: "Sofá", photo: "images/sofa.jpg",   pt: ["Cota do sofá", "Onde vamos ver muitos filmes."], en: ["Sofa share", "Where we will watch lots of films."] },
     { id: "cafe",     eur: 40,  icon: "Café", photo: "images/cafe.jpg",   pt: ["Cafeteira", "Café de manhã, todo dia."], en: ["Coffee maker", "Morning coffee, every day."] },
-    { id: "livre",    eur: null, icon: "Livre", photo: "images/livre.jpg", pt: ["Valor livre", "Você escolhe quanto quer dar."], en: ["Any amount", "You choose how much to give."] }
   ]
 };
 
