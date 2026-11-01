@@ -196,7 +196,7 @@ section + section { border-top: 1px solid var(--line); }
 .qr { display: grid; justify-items: center; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
 .qr svg { width: 184px; height: 184px; max-width: 100%; display: block; }
 .qr p { font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; max-width: 36ch; }
-.field.clamp output { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13px; }
+.field.clamp output { font-family: var(--body); font-size: 14px; color: var(--muted); }
 .sample { font-size: 12px; color: var(--gold); letter-spacing: .06em; }
 
 footer { padding-block: 48px; text-align: center; color: var(--muted); font-size: 14px; display: grid; gap: 6px; }
@@ -365,7 +365,7 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.3.5",
+  version: "v0.3.6",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "https://form.jotform.com/262646296951065",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
@@ -427,7 +427,7 @@ const T = {
     "co.copyall":"Copiar todos os dados","co.copy":"Copiar","co.copied":"Copiado",
     "co.done":"Pronto! Não precisa fazer mais nada: o banco nos avisa quando o presente chegar. Obrigado de coração.",
     "co.eqeur":"≈ {v} em euro","co.eqbrl":"≈ {v} em real",
-    "f.holder":"Titular","f.pix":"Chave Pix","f.pixcode":"Pix copia e cola","co.pixhint":"No app do seu banco, escolha Pix e depois pagar com QR Code ou Pix Copia e Cola. O valor já vem preenchido.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Banco","f.amount":"Valor","f.ref":"Referência (opcional)",
+    "f.holder":"Titular","f.pix":"Chave Pix","f.pixcode":"Pix copia e cola","co.pixready":"Código pronto: toque em Copiar e cole no app do banco","co.pixhint":"No app do seu banco, escolha Pix e pague com o QR Code ou com o Pix Copia e Cola. O valor em reais já vem preenchido, convertido pela cotação do dia.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Banco","f.amount":"Valor","f.ref":"Referência (opcional)",
     "sample":"dados de exemplo",
     "footer":"Obrigado por fazer parte da nossa história."
   },
@@ -457,7 +457,7 @@ const T = {
     "co.copyall":"Copy all details","co.copy":"Copy","co.copied":"Copied",
     "co.done":"That's it! Nothing else to do: our bank lets us know when your gift arrives. Thank you so much.",
     "co.eqeur":"≈ {v} in euro","co.eqbrl":"≈ {v} in real",
-    "f.holder":"Account holder","f.pix":"Pix key","f.pixcode":"Pix copy and paste code","co.pixhint":"In your banking app, choose Pix and pay with the QR code or the copy and paste code. The amount is already filled in.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Bank","f.amount":"Amount","f.ref":"Reference (optional)",
+    "f.holder":"Account holder","f.pix":"Pix key","f.pixcode":"Pix copy and paste code","co.pixready":"Code ready: tap Copy and paste it in your banking app","co.pixhint":"In your banking app, choose Pix and pay with the QR code or the copy and paste code. The amount in reais is already filled in, at today's rate.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Bank","f.amount":"Amount","f.ref":"Reference (optional)",
     "sample":"sample details",
     "footer":"Thank you for being part of our story."
   }
@@ -523,10 +523,9 @@ function closeSheet() {
   if (lastTrigger) lastTrigger.focus();
 }
 
-function amountNow() {
-  if (current.eur == null) return Math.max(0, Number($("free-input").value) || 0);
-  return currency === "EUR" ? current.eur : toBrl(current.eur);
-}
+/* valor do presente sempre em euro; em real só dentro do código Pix */
+function eurNow() { return current.eur == null ? Math.max(0, Number($("free-input").value) || 0) : current.eur; }
+function amountNow() { return currency === "EUR" ? eurNow() : toBrl(eurNow()); }
 
 function renderSheet() {
   const g = current;
@@ -536,11 +535,11 @@ function renderSheet() {
   const free = g.eur == null;
   $("amount-fixed").hidden = free;
   $("amount-free").hidden = !free;
-  $("free-sym").textContent = currency === "EUR" ? "€" : "R$";
-  $("rate-note").hidden = currency !== "BRL";
+  $("free-sym").textContent = "€";
+  $("rate-note").hidden = true;
   if (!free) {
-    $("amount").textContent = fmt(amountNow(), currency);
-    $("amount-sub").textContent = currency === "EUR" ? "" : t("co.eqeur", { v: fmt(g.eur, "EUR") });
+    $("amount").textContent = fmt(g.eur, "EUR");
+    $("amount-sub").textContent = "";
   }
   renderFields();
 }
@@ -550,13 +549,13 @@ function renderFields() {
   const ref = (lang === "pt" ? "Presente " : "Gift ") + current[lang][0];
   const rows = currency === "EUR"
     ? [["f.amount", fmt(amt, "EUR")], ["f.holder", CONFIG.eur.holder], ["f.iban", CONFIG.eur.iban], ["f.bic", CONFIG.eur.bic], ["f.bank", CONFIG.eur.bank], ["f.ref", ref]]
-    : [["f.amount", fmt(amt, "BRL")], ["f.pixcode", pixCode(amt, ref)], ["f.pix", CONFIG.brl.pixKey], ["f.holder", CONFIG.brl.holder]];
+    : [["f.pixcode", pixCode(amt, ref)], ["f.pix", CONFIG.brl.pixKey], ["f.holder", CONFIG.brl.holder]];
   const sample = currency === "EUR" ? CONFIG.eur.sample : CONFIG.brl.sample;
   const box = $("fields"); box.innerHTML = "";
   if (sample) { const s = document.createElement("p"); s.className = "sample"; s.textContent = "● " + t("sample"); box.appendChild(s); }
   if (currency === "BRL") {
     const q = document.createElement("div"); q.className = "qr";
-    try { const qr = qrcode(0, "M"); qr.addData(rows[1][1]); qr.make(); q.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); } catch (e) { /* sem QR: fica o copia e cola */ }
+    try { const qr = qrcode(0, "M"); qr.addData(rows[0][1]); qr.make(); q.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); } catch (e) { /* sem QR: fica o copia e cola */ }
     const h = document.createElement("p"); h.textContent = t("co.pixhint"); q.appendChild(h);
     box.appendChild(q);
   }
@@ -565,7 +564,7 @@ function renderFields() {
     const id = "fv-" + i;
     d.innerHTML = `<label for="${id}"></label><output id="${id}"></output><button type="button" class="copy"></button>`;
     d.querySelector("label").textContent = t(k);
-    d.querySelector("output").textContent = v;
+    d.querySelector("output").textContent = k === "f.pixcode" ? t("co.pixready") : v;   // código Pix não aparece na tela (tem o valor em reais)
     const btn = d.querySelector("button");
     btn.textContent = t("co.copy");
     btn.addEventListener("click", () => copyText(k === "f.amount" ? String(amt) : v, btn, d.querySelector("output")));
@@ -632,11 +631,7 @@ document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click
   applyLang();
 }));
 document.querySelectorAll(".cur button").forEach(b => b.addEventListener("click", () => {
-  const prev = currency; currency = b.dataset.cur;
-  if (current && current.eur == null && prev !== currency) {
-    const v = Number($("free-input").value) || 0;
-    $("free-input").value = currency === "BRL" ? Math.round(v * rate) : Math.round(v / rate);
-  }
+  currency = b.dataset.cur;
   renderSheet();
 }));
 $("free-input").addEventListener("input", renderFields);

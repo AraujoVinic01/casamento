@@ -1,5 +1,10 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.6 — 01/11/2026
+- Site mostra só euro, inclusive na opção Real. O valor em reais existe apenas dentro do QR Code / Pix copia e cola: a pessoa só vê o R$ no app do banco.
+- Pix: saíram a linha "Valor R$" e a cotação; o código copia e cola não aparece na tela (botão Copiar continua copiando o código completo).
+- Valor livre é sempre digitado em euro e convertido no código Pix.
+
 ## v0.3.5 — 01/11/2026
 - Euro em primeiro: no checkout, € Euro vem antes e já selecionado (pra todo mundo, em PT ou EN).
 - Valores em real saíram da lista de presentes e do pagamento em euro. O R$ só aparece quando a pessoa escolhe Real (Pix), junto com a cotação do dia.
