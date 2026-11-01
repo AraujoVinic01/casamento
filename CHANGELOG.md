@@ -1,5 +1,9 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.8 — 01/11/2026
+- Opção "Pagar com Revolut" no pagamento em euro: botão (celular) + QR Code (computador) pro revolut.me, acima dos dados do IBAN, com "ou transferência bancária" separando.
+- Fica escondida pros convidados até a Revtag ser preenchida no CONFIG (`revolut.tag`). Prévia: abrir o site com `?revolut-preview`.
+
 ## v0.3.7 — 01/11/2026
 - Cotação do dia mais confiável: tenta 3 fontes gratuitas (Frankfurter novo, Frankfurter antigo e currency-api) antes de usar a cotação de referência. Afeta só o valor em reais dentro do Pix.
 
