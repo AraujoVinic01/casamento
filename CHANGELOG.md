@@ -1,5 +1,10 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.5 — 01/11/2026
+- Euro em primeiro: no checkout, € Euro vem antes e já selecionado (pra todo mundo, em PT ou EN).
+- Valores em real saíram da lista de presentes e do pagamento em euro. O R$ só aparece quando a pessoa escolhe Real (Pix), junto com a cotação do dia.
+- "Valor livre" começa em € 50.
+
 ## v0.3.4 — 01/11/2026
 - Ícone V & G na aba do navegador (círculo bordô, letras brancas, & dourado e anel dourado), também ao salvar o site na tela inicial do celular.
 - Barra do navegador no celular em bordô (theme-color).

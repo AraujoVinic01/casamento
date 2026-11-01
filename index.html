@@ -159,7 +159,7 @@ section + section { border-top: 1px solid var(--line); }
 .gift .price { padding: 12px 18px 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .gift .price b { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1; font-variant-numeric: lining-nums; color: var(--accent); }
 .gift .price small { font-family: var(--display); font-style: italic; color: var(--muted); font-size: 17px; font-variant-numeric: lining-nums; }
-.rate-note { margin-top: 24px; font-size: 14px; color: var(--muted); text-align: center; }
+.rate-note { margin-top: 8px; font-size: 13px; color: var(--muted); }
 .rate-note b { font-weight: 700; color: var(--ink); }
 
 /* Checkout */
@@ -307,10 +307,9 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
         <p class="eyebrow" data-i18n="gifts.eyebrow">Lista de presentes</p>
         <h2 data-i18n="gifts.title">Presentes</h2>
         <div class="ornament" aria-hidden="true"><span></span></div>
-        <p class="lede" data-i18n="gifts.lede">Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em real ou em euro direto na nossa conta, sem taxa nenhuma.</p>
+        <p class="lede" data-i18n="gifts.lede">Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em euro ou em real direto na nossa conta, sem taxa nenhuma.</p>
       </div>
       <div class="gifts" id="gifts"></div>
-      <p class="rate-note" id="rate-note"></p>
     </div>
   </section>
 </main>
@@ -336,8 +335,8 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
     <div>
       <p class="step" data-i18n="co.step1">1 · Como você quer pagar?</p>
       <div class="cur">
-        <button type="button" id="cur-brl" data-cur="BRL" aria-pressed="true"><span class="sym">R$</span><b>Real</b><span data-i18n="co.brlsub">Pix, do Brasil</span></button>
-        <button type="button" id="cur-eur" data-cur="EUR" aria-pressed="false"><span class="sym">€</span><b>Euro</b><span data-i18n="co.eursub">Transferência IBAN</span></button>
+        <button type="button" id="cur-eur" data-cur="EUR" aria-pressed="true"><span class="sym">€</span><b>Euro</b><span data-i18n="co.eursub">Transferência IBAN</span></button>
+        <button type="button" id="cur-brl" data-cur="BRL" aria-pressed="false"><span class="sym">R$</span><b>Real</b><span data-i18n="co.brlsub">Pix, do Brasil</span></button>
       </div>
     </div>
 
@@ -345,8 +344,9 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
       <p class="step" data-i18n="co.step2">2 · Valor</p>
       <div class="amount" id="amount-fixed"><strong id="amount"></strong><small id="amount-sub"></small></div>
       <div id="amount-free" hidden>
-        <label class="free" for="free-input"><span id="free-sym">R$</span><input id="free-input" type="number" inputmode="decimal" min="1" step="1" value="200"></label>
+        <label class="free" for="free-input"><span id="free-sym">€</span><input id="free-input" type="number" inputmode="decimal" min="1" step="1" value="50"></label>
       </div>
+      <p class="rate-note" id="rate-note" hidden></p>
     </div>
 
     <div>
@@ -365,7 +365,7 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.3.4",
+  version: "v0.3.5",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "https://form.jotform.com/262646296951065",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
@@ -418,7 +418,7 @@ const T = {
     "party.rsvp":"Confirmar presença","party.map":"Ver no mapa",
     "gal.eyebrow":"Momentos","gal.title":"Fotos",
     "gifts.eyebrow":"Lista de presentes","gifts.title":"Presentes",
-    "gifts.lede":"Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em real ou em euro direto na nossa conta, sem taxa nenhuma.",
+    "gifts.lede":"Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em euro ou em real direto na nossa conta, sem taxa nenhuma.",
     "gifts.choose":"Você escolhe",
     "rate.live":"Cotação do dia: <b>1 € = R$ {r}</b> (Banco Central Europeu, {d}). Valores em real arredondados.",
     "rate.fallback":"Cotação de referência: <b>1 € = R$ {r}</b>. Valores em real arredondados.",
@@ -469,7 +469,7 @@ const T = {
 let lang = /^pt\b/i.test(navigator.language || "pt") ? "pt" : "en";   // idioma do celular do convidado
 try { const s = localStorage.getItem("gv-lang"); if (s === "en" || s === "pt") lang = s; } catch (e) {}   // escolha manual tem prioridade
 let rate = CONFIG.fallbackRate, rateDate = null, rateLive = false;
-let current = null, currency = "BRL";
+let current = null, currency = "EUR";
 
 const $ = (id) => document.getElementById(id);
 const t = (k, vars) => { let s = (T[lang][k] ?? T.pt[k] ?? k); if (vars) for (const v in vars) s = s.replace("{" + v + "}", vars[v]); return s; };
@@ -493,7 +493,7 @@ function renderGifts() {
     const [name, desc] = g[lang];
     const price = g.eur == null
       ? `<b>${t("gifts.choose")}</b>`
-      : `<b>${fmt(g.eur, "EUR")}</b><small>${fmt(toBrl(g.eur), "BRL")}</small>`;
+      : `<b>${fmt(g.eur, "EUR")}</b>`;
     b.innerHTML = `<div class="art">${g.photo ? `<img src="${g.photo}" alt="" loading="lazy"${g.pos ? ` style="object-position:${g.pos}"` : ""}>` : g.icon}</div><div class="body"><h3></h3><p></p></div><div class="price">${price}</div>`;
     b.querySelector("h3").textContent = name;
     b.querySelector("p").textContent = desc;
@@ -510,8 +510,8 @@ function renderRate() {
 let lastTrigger = null;
 function openSheet(g, trigger) {
   current = g; lastTrigger = trigger;
-  currency = lang === "en" ? "EUR" : "BRL";
-  if (g.eur == null) $("free-input").value = currency === "EUR" ? 50 : 300;
+  currency = "EUR";   // euro sempre primeiro; real só aparece se a pessoa escolher Pix
+  if (g.eur == null) $("free-input").value = 50;
   renderSheet();
   $("scrim").hidden = false;
   document.body.style.overflow = "hidden";
@@ -537,9 +537,10 @@ function renderSheet() {
   $("amount-fixed").hidden = free;
   $("amount-free").hidden = !free;
   $("free-sym").textContent = currency === "EUR" ? "€" : "R$";
+  $("rate-note").hidden = currency !== "BRL";
   if (!free) {
     $("amount").textContent = fmt(amountNow(), currency);
-    $("amount-sub").textContent = currency === "EUR" ? t("co.eqbrl", { v: fmt(toBrl(g.eur), "BRL") }) : t("co.eqeur", { v: fmt(g.eur, "EUR") });
+    $("amount-sub").textContent = currency === "EUR" ? "" : t("co.eqeur", { v: fmt(g.eur, "EUR") });
   }
   renderFields();
 }
