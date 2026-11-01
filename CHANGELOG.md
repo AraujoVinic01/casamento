@@ -1,5 +1,10 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.12 — 01/11/2026
+- Presentes esgotados: todos os itens da lista aparecem como "Esgotado" ("Sold out" em inglês), com a foto em preto e branco, sem o valor e sem clique. Só o "Valor livre" fica disponível, com borda bordô em destaque.
+- Pra voltar um presente pra lista, é só apagar o `soldOut: true` dele no CONFIG.
+- Texto da seção de presentes trocado pelo texto do "presente virtual" (PT e EN): o valor vira dinheiro pros móveis da casa; euro, real ou dinheiro em espécie (entregue pessoalmente, em envelope).
+
 ## v0.3.11 — 01/11/2026
 - Revolut: embaixo do botão aparece pra onde vai o dinheiro — "Vai para (Revtag) @gciweck · Gabriela Ciweck", com botão Copiar.
 
