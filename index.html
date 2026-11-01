@@ -202,6 +202,11 @@ section + section { border-top: 1px solid var(--line); }
 .rev .qrbox svg { width: 132px; height: 132px; max-width: 100%; }
 .rev small { font-size: 12px; color: var(--muted); }
 .rev .flag { font-size: 12px; color: var(--gold); letter-spacing: .06em; }
+.rev .to { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-align: left; }
+.rev .to span { display: grid; gap: 2px; min-width: 0; }
+.rev .to label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rev .to b { font-size: 17px; color: var(--ink); overflow-wrap: anywhere; }
+.rev .to em { font-style: normal; font-size: 13px; color: var(--muted); }
 .or { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-family: var(--caps); margin: 6px 0; }
 .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .qr { display: grid; justify-items: center; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
@@ -376,7 +381,7 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.3.10",
+  version: "v0.3.11",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "https://form.jotform.com/262646296951065",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
@@ -390,7 +395,8 @@ const CONFIG = {
     sample: false
   },
   revolut: {                   // botão "Pagar com Revolut" (aparece no pagamento em euro)
-    tag: "gciweck"             // Revtag da Gabriela (sem o @). Vazio = opção escondida pros convidados
+    tag: "gciweck",            // Revtag da Gabriela (sem o @). Vazio = opção escondida pros convidados
+    name: "Gabriela Ciweck"    // nome mostrado embaixo da Revtag
   },
   brl: {                       // dados para presentes em real (Pix)
     holder: "Vinicius Santos de Araujo",
@@ -441,7 +447,7 @@ const T = {
     "co.copyall":"Copiar todos os dados","co.copy":"Copiar","co.copied":"Copiado",
     "co.done":"Pronto! Não precisa fazer mais nada: o banco nos avisa quando o presente chegar. Obrigado de coração.",
     "co.eqeur":"≈ {v} em euro","co.eqbrl":"≈ {v} em real",
-    "rev.title":"Tem Revolut?","rev.text":"Pague em um toque, sem digitar IBAN. O app abre já no nosso perfil, é só colocar {v}.","rev.btn":"Pagar com Revolut","rev.qr":"No computador? Aponte a câmera do celular","rev.or":"ou transferência bancária","rev.preview":"prévia: Revtag ainda não definida","f.holder":"Titular","f.pix":"Chave Pix","f.pixcode":"Pix copia e cola","co.pixready":"Código pronto: toque em Copiar e cole no app do banco","co.pixhint":"No app do seu banco, escolha Pix e pague com o QR Code ou com o Pix Copia e Cola. O valor em reais já vem preenchido, convertido pela cotação do dia.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Banco","f.amount":"Valor","f.ref":"Referência (opcional)",
+    "rev.title":"Tem Revolut?","rev.to":"Vai para (Revtag)","rev.text":"Pague em um toque, sem digitar IBAN. O app abre já no nosso perfil, é só colocar {v}.","rev.btn":"Pagar com Revolut","rev.qr":"No computador? Aponte a câmera do celular","rev.or":"ou transferência bancária","rev.preview":"prévia: Revtag ainda não definida","f.holder":"Titular","f.pix":"Chave Pix","f.pixcode":"Pix copia e cola","co.pixready":"Código pronto: toque em Copiar e cole no app do banco","co.pixhint":"No app do seu banco, escolha Pix e pague com o QR Code ou com o Pix Copia e Cola. O valor em reais já vem preenchido, convertido pela cotação do dia.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Banco","f.amount":"Valor","f.ref":"Referência (opcional)",
     "sample":"dados de exemplo",
     "footer":"Obrigado por fazer parte da nossa história."
   },
@@ -471,7 +477,7 @@ const T = {
     "co.copyall":"Copy all details","co.copy":"Copy","co.copied":"Copied",
     "co.done":"That's it! Nothing else to do: our bank lets us know when your gift arrives. Thank you so much.",
     "co.eqeur":"≈ {v} in euro","co.eqbrl":"≈ {v} in real",
-    "rev.title":"Have Revolut?","rev.text":"Pay in one tap, no IBAN needed. The app opens on our profile, just enter {v}.","rev.btn":"Pay with Revolut","rev.qr":"On a computer? Scan with your phone camera","rev.or":"or bank transfer","rev.preview":"preview: Revtag not set yet","f.holder":"Account holder","f.pix":"Pix key","f.pixcode":"Pix copy and paste code","co.pixready":"Code ready: tap Copy and paste it in your banking app","co.pixhint":"In your banking app, choose Pix and pay with the QR code or the copy and paste code. The amount in reais is already filled in, at today's rate.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Bank","f.amount":"Amount","f.ref":"Reference (optional)",
+    "rev.title":"Have Revolut?","rev.to":"Goes to (Revtag)","rev.text":"Pay in one tap, no IBAN needed. The app opens on our profile, just enter {v}.","rev.btn":"Pay with Revolut","rev.qr":"On a computer? Scan with your phone camera","rev.or":"or bank transfer","rev.preview":"preview: Revtag not set yet","f.holder":"Account holder","f.pix":"Pix key","f.pixcode":"Pix copy and paste code","co.pixready":"Code ready: tap Copy and paste it in your banking app","co.pixhint":"In your banking app, choose Pix and pay with the QR code or the copy and paste code. The amount in reais is already filled in, at today's rate.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Bank","f.amount":"Amount","f.ref":"Reference (optional)",
     "sample":"sample details",
     "footer":"Thank you for being part of our story."
   }
@@ -595,7 +601,13 @@ function addRevolut(box) {
   if (!tag && !revPreview) return;
   const url = tag ? "https://revolut.me/" + encodeURIComponent(tag) : "";
   const wrap = document.createElement("div"); wrap.className = "rev";
-  wrap.innerHTML = `<h4></h4><p></p><a class="go" target="_blank" rel="noopener"></a><div class="qrbox"></div>`;
+  wrap.innerHTML = `<h4></h4><p></p><a class="go" target="_blank" rel="noopener"></a><div class="to"><span><label></label><b></b><em></em></span><button type="button" class="copy"></button></div><div class="qrbox"></div>`;
+  const shown = "@" + (tag || "revtag");
+  wrap.querySelector(".to label").textContent = t("rev.to");
+  wrap.querySelector(".to b").textContent = shown;
+  wrap.querySelector(".to em").textContent = CONFIG.revolut.name || "";
+  const cb = wrap.querySelector(".to .copy"); cb.textContent = t("co.copy");
+  cb.addEventListener("click", () => copyText(shown, cb, wrap.querySelector(".to b")));
   wrap.querySelector("h4").textContent = t("rev.title");
   wrap.querySelector("p").innerHTML = t("rev.text", { v: "<b>" + fmt(eurNow(), "EUR") + "</b>" });
   const a = wrap.querySelector(".go"); a.textContent = t("rev.btn");

@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.11 — 01/11/2026
+- Revolut: embaixo do botão aparece pra onde vai o dinheiro — "Vai para (Revtag) @gciweck · Gabriela Ciweck", com botão Copiar.
+
 ## v0.3.10 — 01/11/2026
 - "Our story" em inglês: "A Brazilian, an Irish girl" virou "A Brazilian man, an Irish woman".
 
