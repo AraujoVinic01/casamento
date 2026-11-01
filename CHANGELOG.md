@@ -1,5 +1,11 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.0 — 01/11/2026 (dados reais de pagamento)
+- Euro: conta conjunta Revolut (Gabriela Ciweck & Vinicius Araujo), IBAN IE32 REVO 9903 6017 2606 31, BIC REVOIE23.
+- Real: chave Pix de e-mail vini01araujo@hotmail.com; QR Code e copia e cola gerados com ela.
+- Avisos de "dados de exemplo" removidos. Linha "Banco" saiu do Pix (não é necessária).
+- Site publicado no GitHub Pages: araujovinic01.github.io/casamento
+
 ## v0.2.11 — 01/11/2026
 - Novo texto de apresentação do casal (Instagram, Galway, Lisboa, Paris), em PT e EN, no lugar do texto genérico do Casar.com.
 - Traje: Esporte fino, com a nota "Tema outono, em tons mais escuros" (PT e EN).

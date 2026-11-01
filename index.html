@@ -361,25 +361,24 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.2.11",
+  version: "v0.3.0",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
   fallbackRate: 6.10,          // 1 € em R$ caso a cotação do dia não carregue
   roundBrlTo: 10,              // arredonda o valor em real para múltiplos de R$ 10
-  eur: {                       // dados para presentes em euro (Wise)
-    holder: "Vinicius Santos de Araujo",
-    iban: "BE00 0000 0000 0000",
-    bic: "TRWIBEB1XXX",
-    bank: "Wise",
-    sample: true               // mude para false quando colocar os dados reais
+  eur: {                       // dados para presentes em euro (conta conjunta Revolut)
+    holder: "Gabriela Ciweck & Vinicius Araujo",
+    iban: "IE32 REVO 9903 6017 2606 31",
+    bic: "REVOIE23",
+    bank: "Revolut Bank UAB",
+    sample: false
   },
   brl: {                       // dados para presentes em real (Pix)
     holder: "Vinicius Santos de Araujo",
-    pixKey: "seu-email@exemplo.com",   // use chave de e-mail ou aleatória (nunca CPF ou telefone)
+    pixKey: "vini01araujo@hotmail.com",   // chave Pix de e-mail
     city: "Sao Paulo",                // cidade que aparece no app do banco (qualquer cidade serve)
-    bank: "Wise",
-    sample: true
+    sample: false
   },
   photos: ["images/galeria-1.jpg", "images/galeria-2.jpg", "images/galeria-3.jpg", "images/galeria-4.jpg", "images/galeria-5.jpg", "images/galeria-6.jpg"],   // fotos da galeria (quadradas)
   gifts: [
@@ -546,7 +545,7 @@ function renderFields() {
   const ref = (lang === "pt" ? "Presente " : "Gift ") + current[lang][0];
   const rows = currency === "EUR"
     ? [["f.amount", fmt(amt, "EUR")], ["f.holder", CONFIG.eur.holder], ["f.iban", CONFIG.eur.iban], ["f.bic", CONFIG.eur.bic], ["f.bank", CONFIG.eur.bank], ["f.ref", ref]]
-    : [["f.amount", fmt(amt, "BRL")], ["f.pixcode", pixCode(amt, ref)], ["f.pix", CONFIG.brl.pixKey], ["f.holder", CONFIG.brl.holder], ["f.bank", CONFIG.brl.bank]];
+    : [["f.amount", fmt(amt, "BRL")], ["f.pixcode", pixCode(amt, ref)], ["f.pix", CONFIG.brl.pixKey], ["f.holder", CONFIG.brl.holder]];
   const sample = currency === "EUR" ? CONFIG.eur.sample : CONFIG.brl.sample;
   const box = $("fields"); box.innerHTML = "";
   if (sample) { const s = document.createElement("p"); s.className = "sample"; s.textContent = "● " + t("sample"); box.appendChild(s); }
