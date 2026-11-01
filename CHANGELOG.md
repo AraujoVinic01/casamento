@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.10 — 01/11/2026
+- "Our story" em inglês: "A Brazilian, an Irish girl" virou "A Brazilian man, an Irish woman".
+
 ## v0.3.9 — 01/11/2026
 - Revolut ativado: botão e QR Code apontam pra revolut.me/gciweck (Revtag da Gabriela). Opção agora visível pra todos no pagamento em euro.
 
