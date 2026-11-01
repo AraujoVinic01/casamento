@@ -1,5 +1,9 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.4 — 01/11/2026
+- Ícone V & G na aba do navegador (círculo bordô, letras brancas, & dourado e anel dourado), também ao salvar o site na tela inicial do celular.
+- Barra do navegador no celular em bordô (theme-color).
+
 ## v0.3.3 — 01/11/2026
 - Botão "Confirmar presença" abre o formulário do Jotform (o mesmo do QR Code impresso).
 
