@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Nossa celebração no Cloonacauneen Castle, Galway · Our celebration at Cloonacauneen Castle, Galway">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vinícius &amp; Gabriela · 21.11.2026">
+<meta property="og:description" content="Nossa celebração no Cloonacauneen Castle, Galway · Our celebration at Cloonacauneen Castle, Galway">
+<meta property="og:url" content="https://araujovinic01.github.io/casamento/">
+<meta property="og:image" content="https://araujovinic01.github.io/casamento/images/capa-whatsapp.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Vinícius & Gabriela</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Karla:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: uma página que rola — capa bordô centralizada (monograma, nomes em caligrafia, ornamento dourado), seções em coluna estreita, lista de presentes em grade, "checkout" em painel que sobe da base no celular */
+/* Tema único claro: branco, bordô e dourado (sempre claro, mesmo com o celular no modo escuro) */
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --ink: #2B1519;
+  --muted: #6F5A5E;
+  --line: #EADFDB;
+  --accent: #6E1E30;
+  --on-accent: #FFFFFF;
+  --gold: #9A7434;
+  --gold-bright: #D8B56C;
+  --soft: #F8F2EF;
+  --scrim: rgba(43, 21, 25, .55);
+  --display: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  --caps: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--accent); }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.narrow { max-width: 680px; }
+
+/* Topo fixo */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--accent); color: var(--on-accent); }
+.topbar .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; height: 60px; }
+.mono-mark { grid-column: 2; font-family: var(--caps); font-size: 20px; letter-spacing: .14em; text-decoration: none; white-space: nowrap; }
+.mono-mark .amp { font-family: var(--display); font-style: italic; color: var(--gold-bright); letter-spacing: 0; margin: 0 .1em; }
+.nav { grid-column: 1; grid-row: 1; display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { text-decoration: none; font-family: var(--caps); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; white-space: nowrap; }
+.nav a { position: relative; padding-block: 4px; transition: color .3s ease, opacity .3s ease; }
+.nav a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: 0; height: 1px; background: var(--gold-bright); transition: left .35s ease, right .35s ease; }
+.nav a:hover { opacity: 1; }
+.nav a.active { opacity: 1; color: var(--gold-bright); font-weight: 600; }
+.nav a.active::after { left: 0; right: 0; }
+.lang { grid-column: 3; justify-self: end; display: flex; border: 1px solid var(--gold-bright); border-radius: 999px; overflow: hidden; }
+.lang button { background: none; border: 0; padding: 4px 10px; font-size: 12px; letter-spacing: .08em; font-weight: 700; }
+.lang button[aria-pressed="true"] { background: var(--gold-bright); color: var(--accent); }
+@media (max-width: 720px) {
+  .topbar .wrap { height: auto; padding-block: 10px 8px; row-gap: 6px; }
+  .nav { grid-column: 1 / -1; grid-row: 2; justify-content: center; gap: 14px; }
+  .nav a { font-size: 11px; letter-spacing: .06em; }
+}
+section { scroll-margin-top: 96px; }
+
+/* Capa */
+.hero { background: var(--accent); color: var(--on-accent); border-bottom: 4px solid var(--gold-bright); }
+.hero .wrap { padding-block: 56px 64px; display: grid; gap: 22px; justify-items: center; text-align: center; }
+.eyebrow { font-family: var(--caps); font-size: 13px; letter-spacing: .22em; text-transform: uppercase; opacity: .85; }
+.crest { width: 92px; height: 92px; border-radius: 50%; border: 1px solid var(--gold-bright); outline: 1px solid color-mix(in srgb, var(--gold-bright) 55%, transparent); outline-offset: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--caps); font-size: 24px; letter-spacing: .08em; color: var(--gold-bright); }
+.crest i { font-family: var(--display); font-size: 20px; margin: 0 2px; }
+.names { font-family: var(--script); font-weight: 400; font-size: clamp(60px, 15vw, 128px); line-height: 1; display: grid; justify-items: center; gap: .02em; white-space: nowrap; }
+.names .amp { font-family: var(--display); font-style: italic; font-size: .42em; color: var(--gold-bright); line-height: 1.2; }
+.ornament { display: flex; align-items: center; gap: 12px; width: min(280px, 80%); color: var(--gold-bright); }
+.ornament::before, .ornament::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .8; }
+.ornament span { width: 7px; height: 7px; border: 1px solid currentColor; transform: rotate(45deg); }
+.hero-meta { display: grid; gap: 6px; justify-items: center; }
+.hero-meta > span:last-child { font-family: var(--display); font-style: italic; font-size: 20px; opacity: .9; }
+.date { font-family: var(--caps); font-size: 20px; letter-spacing: .24em; }
+.countdown { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; padding-top: 8px; }
+.countdown div { display: grid; justify-items: center; }
+.countdown b { color: var(--gold-bright); font-family: var(--display); font-size: 40px; font-weight: 400; font-variant-numeric: tabular-nums; line-height: 1; }
+.hero-cta { margin-top: 6px; display: inline-flex; padding: 12px 26px; border: 1px solid var(--gold-bright); border-radius: 999px; color: var(--gold-bright); text-decoration: none; font-family: var(--caps); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; transition: background .15s, color .15s; }
+.hero-cta:hover { background: var(--gold-bright); color: var(--accent); }
+.married { font-family: var(--script); font-size: 48px; line-height: 1.1; color: var(--gold-bright); }
+.countdown span { font-family: var(--caps); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+
+/* Seções */
+section { padding-block: 72px; }
+section + section { border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 36px; justify-items: center; text-align: center; }
+.sec-head .ornament { color: var(--gold); width: min(180px, 60%); }
+.sec-head .lede { margin-top: 4px; }
+.sec-head .eyebrow { color: var(--gold); opacity: 1; }
+.sec-head h2 { font-size: clamp(38px, 6.5vw, 54px); }
+.lede { color: var(--muted); max-width: 62ch; }
+
+.welcome p { font-family: var(--display); font-style: italic; font-size: 23px; line-height: 1.5; max-width: 58ch; margin-inline: auto; text-align: center; }
+
+/* Fotos (espaços reservados até chegarem as fotos de verdade) */
+.photo { position: relative; background: var(--soft); border: 1px dashed var(--line); border-radius: 4px; aspect-ratio: 4 / 5; max-width: 100%; display: grid; place-items: center; overflow: hidden; color: var(--muted); }
+.photo span { font-family: var(--display); font-style: italic; font-size: 28px; }
+.photo small { position: absolute; bottom: 10px; left: 12px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo.has-img { border: 0; background: var(--soft); }
+
+.couple { margin: 0 auto 36px; max-width: min(100%, 460px); aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; outline: 1px solid var(--gold); outline-offset: 6px; }
+.couple img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Linha do tempo */
+.timeline { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 28px; }
+.timeline li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 18px; }
+.timeline .when { font-family: var(--caps); font-size: 13px; letter-spacing: .06em; color: var(--gold); padding-top: 6px; }
+.timeline h3 { font-size: 24px; margin-bottom: 6px; }
+.timeline p { color: var(--muted); }
+.todo { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: 1px 8px; vertical-align: middle; margin-left: 6px; font-family: var(--body); }
+
+/* Celebração */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.fact { display: grid; gap: 4px; }
+.fact dt { font-family: var(--caps); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.fact dd { margin: 0; font-family: var(--display); font-size: 24px; }
+.fact .addr { display: block; font-family: var(--body); font-size: 15px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); text-decoration: none; font-family: var(--caps); font-weight: 500; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; justify-content: center; }
+
+/* Galeria */
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.gallery .photo { aspect-ratio: 1; }
+@media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Presentes */
+.gifts { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.gift { display: grid; grid-template-rows: auto 1fr auto; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0; overflow: hidden; transition: transform .15s, border-color .15s; }
+.gift:hover { transform: translateY(-2px); border-color: var(--accent); }
+.gift .art { aspect-ratio: 16 / 10; max-width: 100%; background: var(--soft); display: grid; place-items: center; font-family: var(--display); font-style: italic; font-size: 40px; color: var(--accent); overflow: hidden; }
+.gift .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gift .body { padding: 16px 18px 6px; display: grid; gap: 4px; align-content: start; }
+.gift h3 { font-size: 21px; }
+.gift p { color: var(--muted); font-size: 15px; }
+.gift .price { padding: 12px 18px 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.gift .price b { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1; font-variant-numeric: lining-nums; color: var(--accent); }
+.gift .price small { font-family: var(--display); font-style: italic; color: var(--muted); font-size: 17px; font-variant-numeric: lining-nums; }
+.rate-note { margin-top: 24px; font-size: 14px; color: var(--muted); text-align: center; }
+.rate-note b { font-weight: 700; color: var(--ink); }
+
+/* Checkout */
+.sheet-scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; display: grid; place-items: end center; }
+@media (min-width: 720px) { .sheet-scrim { place-items: center; } }
+.sheet { background: var(--surface); width: 100%; max-width: 520px; max-height: 92dvh; overflow-y: auto; border-radius: 16px 16px 0 0; padding: 24px max(20px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); display: grid; gap: 20px; }
+@media (min-width: 720px) { .sheet { border-radius: 12px; } }
+.sheet-head { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.sheet-head h3 { font-size: 28px; }
+.close { background: none; border: 1px solid var(--line); border-radius: 999px; width: 36px; height: 36px; flex: none; font-size: 18px; line-height: 1; }
+.step { font-family: var(--caps); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.cur { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cur button { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 14px 10px; display: grid; justify-items: center; gap: 4px; text-align: center; }
+.cur button .sym { font-family: var(--display); font-size: 32px; line-height: 1; color: var(--gold); }
+.cur button b { font-family: var(--caps); font-weight: 500; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+.cur button span:last-child { font-size: 13px; color: var(--muted); }
+.cur button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.amount { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.amount strong { font-family: var(--display); font-weight: 600; font-size: 42px; line-height: 1; font-variant-numeric: lining-nums; color: var(--accent); }
+.amount small { color: var(--muted); font-size: 14px; }
+.free { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; background: var(--bg); }
+.free span { font-family: var(--display); font-size: 26px; color: var(--gold); }
+.free input { border: 0; background: none; font-family: var(--display); font-weight: 600; font-size: 32px; font-variant-numeric: lining-nums; width: 100%; min-width: 0; color: var(--ink); }
+.free input:focus { outline: none; }
+.free:focus-within { border-color: var(--accent); }
+.fields { display: grid; gap: 8px; }
+.field { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--bg); }
+.field label { grid-column: 1 / -1; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.field output { font-family: var(--mono); font-size: 16px; overflow-wrap: anywhere; user-select: all; }
+.copy { border: 1px solid var(--accent); background: none; color: var(--accent); border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.copy.done { background: var(--accent); color: var(--on-accent); }
+.copy-all { width: 100%; justify-content: center; }
+.hint { font-size: 14px; color: var(--muted); }
+.qr { display: grid; justify-items: center; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.qr svg { width: 184px; height: 184px; max-width: 100%; display: block; }
+.qr p { font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; max-width: 36ch; }
+.field.clamp output { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13px; }
+.sample { font-size: 12px; color: var(--gold); letter-spacing: .06em; }
+
+footer { padding-block: 48px; text-align: center; color: var(--muted); font-size: 14px; display: grid; gap: 6px; }
+footer .ornament { color: var(--gold); width: min(180px, 60%); margin: 0 auto 8px; }
+footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; color: var(--accent); }
+</style>
+</head>
+<body>
+
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mono-mark" href="#home">V<span class="amp">&amp;</span>G</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#casal" data-i18n="nav.couple">O casal</a>
+      <a href="#celebracao" data-i18n="nav.party">Celebração</a>
+      <a href="#galeria" data-i18n="nav.gallery">Fotos</a>
+      <a href="#presentes" data-i18n="nav.gifts">Presentes</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-pt" data-lang="pt" aria-pressed="true">PT</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+  <div class="hero">
+    <div class="wrap">
+      <div class="crest" aria-hidden="true">V<i>&amp;</i>G</div>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Vamos celebrar</p>
+      <h1 class="names"><span>Vinícius</span><span class="amp">&amp;</span><span>Gabriela</span></h1>
+      <div class="ornament" aria-hidden="true"><span></span></div>
+      <div class="hero-meta">
+        <span class="date">21 · 11 · 2026</span>
+        <span data-i18n="hero.place">Galway, Irlanda</span>
+      </div>
+      <p class="married" id="married" data-i18n="cd.married" hidden>Casados!</p>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div><b id="cd-days">0</b><span data-i18n="cd.days">dias</span></div>
+        <div><b id="cd-hours">0</b><span data-i18n="cd.hours">horas</span></div>
+        <div><b id="cd-mins">0</b><span data-i18n="cd.mins">minutos</span></div>
+      </div>
+      <a class="hero-cta" href="#presentes" data-i18n="hero.cta">Lista de presentes</a>
+    </div>
+  </div>
+
+  <section class="welcome">
+    <div class="wrap narrow">
+      <p data-i18n="welcome">Criamos este site para dividir com vocês os detalhes da nossa celebração. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontram a nossa história, as informações do local e a nossa lista de presentes.</p>
+    </div>
+  </section>
+
+  <section id="casal">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="couple.eyebrow">Nossa história</p>
+        <h2 data-i18n="couple.title">O casal</h2>
+        <div class="ornament" aria-hidden="true"><span></span></div>
+      </div>
+      <figure class="couple">
+        <img src="images/casal.jpg" alt="Vinícius &amp; Gabriela" loading="lazy">
+      </figure>
+      <p class="lede" data-i18n="couple.text">Um brasileiro, uma irlandesa e uma mensagem no Instagram. Foi assim que tudo começou. Um mês depois, Galway nos recebeu para o primeiro encontro e, desde então, cada dia juntos virou uma nova aventura, de Lisboa a Paris. Agora voltamos a Galway, onde tudo começou, para celebrar esse amor com as pessoas mais importantes das nossas vidas.</p>
+      <ol class="timeline">
+        <li><span class="when">23.07.2025</span><div><h3 data-i18n="tl.1.t">Como nos conhecemos</h3><p data-i18n="tl.1.d">Nos conhecemos por um aplicativo maravilhoso chamado Instagram.</p></div></li>
+        <li><span class="when">23.08.2025</span><div><h3 data-i18n="tl.2.t">O primeiro encontro</h3><p data-i18n="tl.2.d">No nosso primeiro encontro oficial, nos vimos no dia 23 de agosto em Galway, fomos a um aquário e a um parque de diversões e depois almoçamos juntos.</p></div></li>
+        <li><span class="when">11.09.2026</span><div><h3 data-i18n="tl.3.t">O pedido</h3><p data-i18n="tl.3.d">O pedido foi no dia 11 de setembro de 2026, em Paris. O Vinícius fez o pedido bem na hora em que a Torre Eiffel começou a brilhar, às 22h. Foi um dos dias mais felizes das nossas vidas.</p></div></li>
+        <li><span class="when">21.11.2026</span><div><h3 data-i18n="tl.4.t">A celebração</h3><p data-i18n="tl.4.d">21 de novembro, com as nossas duas famílias reunidas.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="celebracao">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="party.eyebrow">O grande dia</p>
+        <h2 data-i18n="party.title">Celebração</h2>
+        <div class="ornament" aria-hidden="true"><span></span></div>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt data-i18n="party.date">Data</dt><dd data-i18n="party.dateval">Sábado, 21 de novembro de 2026</dd></div>
+        <div class="fact"><dt data-i18n="party.time">Horário</dt><dd>16:00</dd></div>
+        <div class="fact"><dt data-i18n="party.place">Local</dt><dd>Cloonacauneen Castle<span class="addr">Tuam Road, Cloonacauneen, Co. Galway, H91 XY77</span></dd></div>
+        <div class="fact"><dt data-i18n="party.dress">Traje</dt><dd><span data-i18n="party.dressval">Esporte fino</span><span class="addr" data-i18n="party.dressnote">Tema outono, em tons mais escuros</span></dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn" id="rsvp-link" href="#" target="_blank" rel="noopener" data-i18n="party.rsvp">Confirmar presença</a>
+        <a class="btn ghost" id="map-link" href="https://maps.google.com" target="_blank" rel="noopener" data-i18n="party.map">Ver no mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="gal.eyebrow">Momentos</p>
+        <h2 data-i18n="gal.title">Fotos</h2>
+        <div class="ornament" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <section id="presentes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="gifts.eyebrow">Lista de presentes</p>
+        <h2 data-i18n="gifts.title">Presentes</h2>
+        <div class="ornament" aria-hidden="true"><span></span></div>
+        <p class="lede" data-i18n="gifts.lede">Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em real ou em euro direto na nossa conta, sem taxa nenhuma.</p>
+      </div>
+      <div class="gifts" id="gifts"></div>
+      <p class="rate-note" id="rate-note"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ornament" aria-hidden="true"><span></span></div>
+    <p class="sign">Vinícius &amp; Gabriela</p>
+    <p data-i18n="footer">Obrigado por fazer parte da nossa história.</p>
+  </div>
+</footer>
+
+<div class="sheet-scrim" id="scrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-head">
+      <div>
+        <p class="step" data-i18n="co.gift">Seu presente</p>
+        <h3 id="sheet-title"></h3>
+      </div>
+      <button type="button" class="close" id="close" aria-label="Fechar">×</button>
+    </div>
+
+    <div>
+      <p class="step" data-i18n="co.step1">1 · Como você quer pagar?</p>
+      <div class="cur">
+        <button type="button" id="cur-brl" data-cur="BRL" aria-pressed="true"><span class="sym">R$</span><b>Real</b><span data-i18n="co.brlsub">Pix, do Brasil</span></button>
+        <button type="button" id="cur-eur" data-cur="EUR" aria-pressed="false"><span class="sym">€</span><b>Euro</b><span data-i18n="co.eursub">Transferência IBAN</span></button>
+      </div>
+    </div>
+
+    <div>
+      <p class="step" data-i18n="co.step2">2 · Valor</p>
+      <div class="amount" id="amount-fixed"><strong id="amount"></strong><small id="amount-sub"></small></div>
+      <div id="amount-free" hidden>
+        <label class="free" for="free-input"><span id="free-sym">R$</span><input id="free-input" type="number" inputmode="decimal" min="1" step="1" value="200"></label>
+      </div>
+    </div>
+
+    <div>
+      <p class="step" data-i18n="co.step3">3 · Copie os dados e transfira pelo app do seu banco</p>
+      <div class="fields" id="fields"></div>
+    </div>
+
+    <button type="button" class="btn copy-all" id="copy-all" data-i18n="co.copyall">Copiar todos os dados</button>
+    <p class="hint" data-i18n="co.done">Pronto! Não precisa fazer mais nada: o banco nos avisa quando o presente chegar. Obrigado de coração.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+/* ============================================================
+   CONFIGURAÇÃO — edite só esta parte
+   ============================================================ */
+const CONFIG = {
+  version: "v0.2.11",
+  weddingDate: "2026-11-21T16:00:00+00:00",
+  rsvpUrl: "",                 // link do formulário Jotform (o mesmo do QR impresso)
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
+  fallbackRate: 6.10,          // 1 € em R$ caso a cotação do dia não carregue
+  roundBrlTo: 10,              // arredonda o valor em real para múltiplos de R$ 10
+  eur: {                       // dados para presentes em euro (Wise)
+    holder: "Vinicius Santos de Araujo",
+    iban: "BE00 0000 0000 0000",
+    bic: "TRWIBEB1XXX",
+    bank: "Wise",
+    sample: true               // mude para false quando colocar os dados reais
+  },
+  brl: {                       // dados para presentes em real (Pix)
+    holder: "Vinicius Santos de Araujo",
+    pixKey: "seu-email@exemplo.com",   // use chave de e-mail ou aleatória (nunca CPF ou telefone)
+    city: "Sao Paulo",                // cidade que aparece no app do banco (qualquer cidade serve)
+    bank: "Wise",
+    sample: true
+  },
+  photos: ["images/galeria-1.jpg", "images/galeria-2.jpg", "images/galeria-3.jpg", "images/galeria-4.jpg", "images/galeria-5.jpg", "images/galeria-6.jpg"],   // fotos da galeria (quadradas)
+  gifts: [
+    { id: "jantar",   eur: 50,  icon: "Jantar", photo: "images/jantar.jpg", pt: ["Jantar na lua de mel", "Um jantar especial só nós dois."], en: ["Honeymoon dinner", "A special dinner for the two of us."] },
+    { id: "passeio",  eur: 80,  icon: "Passeio", photo: "images/barco.jpg", pt: ["Passeio de barco", "Um dia no mar durante a viagem."], en: ["Boat trip", "A day on the water during the trip."] },
+    { id: "hotel",    eur: 120, icon: "Hotel", photo: "images/hotel.jpg",  pt: ["Uma noite de hotel", "A primeira noite da lua de mel."], en: ["A night at the hotel", "The first night of our honeymoon."] },
+    { id: "passagem", eur: 250, icon: "Viagem", photo: "images/viagem.jpg", pt: ["Passagens da lua de mel", "Ajuda com os voos da viagem."], en: ["Honeymoon flights", "Help with the flights for our trip."] },
+    { id: "casa",     eur: 150, icon: "Casa", photo: "images/casa.jpg",   pt: ["Fundo da primeira casa", "O começo do nosso lar juntos."], en: ["First home fund", "The start of our home together."] },
+    { id: "sofa",     eur: 100, icon: "Sofá", photo: "images/sofa.jpg",   pt: ["Cota do sofá", "Onde vamos ver muitos filmes."], en: ["Sofa share", "Where we will watch lots of films."] },
+    { id: "cafe",     eur: 40,  icon: "Café", photo: "images/cafe.jpg",   pt: ["Cafeteira", "Café de manhã, todo dia."], en: ["Coffee maker", "Morning coffee, every day."] },
+    { id: "livre",    eur: null, icon: "Livre", photo: "images/livre.jpg", pt: ["Valor livre", "Você escolhe quanto quer dar."], en: ["Any amount", "You choose how much to give."] }
+  ]
+};
+
+/* ============================================================
+   TEXTOS PT / EN
+   ============================================================ */
+const T = {
+  pt: {
+    "nav.couple":"O casal","nav.party":"Celebração","nav.gallery":"Fotos","nav.gifts":"Presentes",
+    "hero.eyebrow":"Vamos celebrar","hero.place":"Galway, Irlanda",
+    "cd.days":"dias","cd.hours":"horas","cd.mins":"minutos","cd.married":"Casados!","hero.cta":"Lista de presentes",
+    "welcome":"Criamos este site para dividir com vocês os detalhes da nossa celebração. Estamos muito felizes e contamos com a presença de todos no nosso grande dia! Aqui vocês encontram a nossa história, as informações do local e a nossa lista de presentes.",
+    "couple.eyebrow":"Nossa história","couple.title":"O casal","photo.ph":"foto",
+    "couple.text":"Um brasileiro, uma irlandesa e uma mensagem no Instagram. Foi assim que tudo começou. Um mês depois, Galway nos recebeu para o primeiro encontro e, desde então, cada dia juntos virou uma nova aventura, de Lisboa a Paris. Agora voltamos a Galway, onde tudo começou, para celebrar esse amor com as pessoas mais importantes das nossas vidas.",
+    "tl.1.t":"Como nos conhecemos","tl.1.d":"Nos conhecemos por um aplicativo maravilhoso chamado Instagram.",
+    "tl.2.t":"O primeiro encontro","tl.2.d":"No nosso primeiro encontro oficial, nos vimos no dia 23 de agosto em Galway, fomos a um aquário e a um parque de diversões e depois almoçamos juntos.",
+    "tl.3.t":"O pedido","tl.3.d":"O pedido foi no dia 11 de setembro de 2026, em Paris. O Vinícius fez o pedido bem na hora em que a Torre Eiffel começou a brilhar, às 22h. Foi um dos dias mais felizes das nossas vidas.",
+    "tl.4.t":"A celebração","tl.4.d":"21 de novembro, com as nossas duas famílias reunidas.",
+    "todo":"editar",
+    "party.eyebrow":"O grande dia","party.title":"Celebração","party.date":"Data","party.dateval":"Sábado, 21 de novembro de 2026",
+    "party.time":"Horário","party.place":"Local","party.dress":"Traje","party.dressval":"Esporte fino","party.dressnote":"Tema outono, em tons mais escuros",
+    "party.rsvp":"Confirmar presença","party.map":"Ver no mapa",
+    "gal.eyebrow":"Momentos","gal.title":"Fotos",
+    "gifts.eyebrow":"Lista de presentes","gifts.title":"Presentes",
+    "gifts.lede":"Ainda não moramos juntos, então qualquer ajuda vira o começo da nossa casa e da nossa lua de mel. Escolha um presente, pague em real ou em euro direto na nossa conta, sem taxa nenhuma.",
+    "gifts.choose":"Você escolhe",
+    "rate.live":"Cotação do dia: <b>1 € = R$ {r}</b> (Banco Central Europeu, {d}). Valores em real arredondados.",
+    "rate.fallback":"Cotação de referência: <b>1 € = R$ {r}</b>. Valores em real arredondados.",
+    "co.gift":"Seu presente","co.step1":"1 · Como você quer pagar?","co.brlsub":"Pix, do Brasil","co.eursub":"Transferência IBAN",
+    "co.step2":"2 · Valor","co.step3":"3 · Copie os dados e transfira pelo app do seu banco",
+    "co.copyall":"Copiar todos os dados","co.copy":"Copiar","co.copied":"Copiado",
+    "co.done":"Pronto! Não precisa fazer mais nada: o banco nos avisa quando o presente chegar. Obrigado de coração.",
+    "co.eqeur":"≈ {v} em euro","co.eqbrl":"≈ {v} em real",
+    "f.holder":"Titular","f.pix":"Chave Pix","f.pixcode":"Pix copia e cola","co.pixhint":"No app do seu banco, escolha Pix e depois pagar com QR Code ou Pix Copia e Cola. O valor já vem preenchido.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Banco","f.amount":"Valor","f.ref":"Referência (opcional)",
+    "sample":"dados de exemplo",
+    "footer":"Obrigado por fazer parte da nossa história."
+  },
+  en: {
+    "nav.couple":"The couple","nav.party":"Celebration","nav.gallery":"Photos","nav.gifts":"Gifts",
+    "hero.eyebrow":"Let's celebrate","hero.place":"Galway, Ireland",
+    "cd.days":"days","cd.hours":"hours","cd.mins":"minutes","cd.married":"Just married!","hero.cta":"Gift list",
+    "welcome":"We made this site to share the details of our celebration with you. We are so happy and can't wait to see you all on our big day! Here you will find our story, the venue details and our gift list.",
+    "couple.eyebrow":"Our story","couple.title":"The couple","photo.ph":"photo",
+    "couple.text":"A Brazilian, an Irish girl and one Instagram message. That is how it all began. A month later, Galway welcomed us for our first date and, since then, every day together has become a new adventure, from Lisbon to Paris. Now we are coming back to Galway, where it all started, to celebrate our love with the people who mean the most to us.",
+    "tl.1.t":"How we met","tl.1.d":"We met through a wonderful app called Instagram.",
+    "tl.2.t":"Our first date","tl.2.d":"For our first official date, we met on the 23rd of August in Galway and went to an aquarium and a funfair, and had lunch afterwards.",
+    "tl.3.t":"The proposal","tl.3.d":"The proposal was on the 11th of September 2026 in Paris. Vinícius proposed right when the Eiffel Tower started to sparkle at 10pm. It was one of the happiest days of our lives.",
+    "tl.4.t":"The celebration","tl.4.d":"21 November, with both our families together.",
+    "todo":"edit",
+    "party.eyebrow":"The big day","party.title":"Celebration","party.date":"Date","party.dateval":"Saturday, 21 November 2026",
+    "party.time":"Time","party.place":"Venue","party.dress":"Dress code","party.dressval":"Smart casual","party.dressnote":"Autumn theme, in darker tones",
+    "party.rsvp":"RSVP","party.map":"View on map",
+    "gal.eyebrow":"Moments","gal.title":"Photos",
+    "gifts.eyebrow":"Gift list","gifts.title":"Gifts",
+    "gifts.lede":"We don't live together yet, so every gift helps start our home and our honeymoon. Pick a gift and pay in euro or Brazilian real straight to our account, with no fees.",
+    "gifts.choose":"Your choice",
+    "rate.live":"Today's rate: <b>€1 = R$ {r}</b> (European Central Bank, {d}). Real amounts are rounded.",
+    "rate.fallback":"Reference rate: <b>€1 = R$ {r}</b>. Real amounts are rounded.",
+    "co.gift":"Your gift","co.step1":"1 · How would you like to pay?","co.brlsub":"Pix, from Brazil","co.eursub":"IBAN bank transfer",
+    "co.step2":"2 · Amount","co.step3":"3 · Copy the details and pay in your banking app",
+    "co.copyall":"Copy all details","co.copy":"Copy","co.copied":"Copied",
+    "co.done":"That's it! Nothing else to do: our bank lets us know when your gift arrives. Thank you so much.",
+    "co.eqeur":"≈ {v} in euro","co.eqbrl":"≈ {v} in real",
+    "f.holder":"Account holder","f.pix":"Pix key","f.pixcode":"Pix copy and paste code","co.pixhint":"In your banking app, choose Pix and pay with the QR code or the copy and paste code. The amount is already filled in.","f.iban":"IBAN","f.bic":"BIC / SWIFT","f.bank":"Bank","f.amount":"Amount","f.ref":"Reference (optional)",
+    "sample":"sample details",
+    "footer":"Thank you for being part of our story."
+  }
+};
+
+/* ============================================================
+   LÓGICA
+   ============================================================ */
+let lang = /^pt\b/i.test(navigator.language || "pt") ? "pt" : "en";   // idioma do celular do convidado
+try { const s = localStorage.getItem("gv-lang"); if (s === "en" || s === "pt") lang = s; } catch (e) {}   // escolha manual tem prioridade
+let rate = CONFIG.fallbackRate, rateDate = null, rateLive = false;
+let current = null, currency = "BRL";
+
+const $ = (id) => document.getElementById(id);
+const t = (k, vars) => { let s = (T[lang][k] ?? T.pt[k] ?? k); if (vars) for (const v in vars) s = s.replace("{" + v + "}", vars[v]); return s; };
+const fmt = (v, cur) => new Intl.NumberFormat(lang === "pt" ? "pt-BR" : "en-IE", { style: "currency", currency: cur, maximumFractionDigits: v % 1 ? 2 : 0 }).format(v);
+const toBrl = (eur) => Math.ceil(eur * rate / CONFIG.roundBrlTo) * CONFIG.roundBrlTo;
+
+function applyLang() {
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  $("lang-pt").setAttribute("aria-pressed", lang === "pt");
+  $("lang-en").setAttribute("aria-pressed", lang === "en");
+  renderGifts(); renderRate();
+  if (current) renderSheet();
+}
+
+function renderGifts() {
+  $("gifts").innerHTML = "";
+  CONFIG.gifts.forEach(g => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "gift";
+    const [name, desc] = g[lang];
+    const price = g.eur == null
+      ? `<b>${t("gifts.choose")}</b>`
+      : `<b>${fmt(g.eur, "EUR")}</b><small>${fmt(toBrl(g.eur), "BRL")}</small>`;
+    b.innerHTML = `<div class="art">${g.photo ? `<img src="${g.photo}" alt="" loading="lazy"${g.pos ? ` style="object-position:${g.pos}"` : ""}>` : g.icon}</div><div class="body"><h3></h3><p></p></div><div class="price">${price}</div>`;
+    b.querySelector("h3").textContent = name;
+    b.querySelector("p").textContent = desc;
+    b.addEventListener("click", () => openSheet(g, b));
+    $("gifts").appendChild(b);
+  });
+}
+
+function renderRate() {
+  const r = rate.toFixed(2).replace(".", lang === "pt" ? "," : ".");
+  $("rate-note").innerHTML = rateLive ? t("rate.live", { r, d: rateDate }) : t("rate.fallback", { r });
+}
+
+let lastTrigger = null;
+function openSheet(g, trigger) {
+  current = g; lastTrigger = trigger;
+  currency = lang === "en" ? "EUR" : "BRL";
+  if (g.eur == null) $("free-input").value = currency === "EUR" ? 50 : 300;
+  renderSheet();
+  $("scrim").hidden = false;
+  document.body.style.overflow = "hidden";
+  $("close").focus();
+}
+function closeSheet() {
+  $("scrim").hidden = true; current = null;
+  document.body.style.overflow = "";
+  if (lastTrigger) lastTrigger.focus();
+}
+
+function amountNow() {
+  if (current.eur == null) return Math.max(0, Number($("free-input").value) || 0);
+  return currency === "EUR" ? current.eur : toBrl(current.eur);
+}
+
+function renderSheet() {
+  const g = current;
+  $("sheet-title").textContent = g[lang][0];
+  $("cur-brl").setAttribute("aria-pressed", currency === "BRL");
+  $("cur-eur").setAttribute("aria-pressed", currency === "EUR");
+  const free = g.eur == null;
+  $("amount-fixed").hidden = free;
+  $("amount-free").hidden = !free;
+  $("free-sym").textContent = currency === "EUR" ? "€" : "R$";
+  if (!free) {
+    $("amount").textContent = fmt(amountNow(), currency);
+    $("amount-sub").textContent = currency === "EUR" ? t("co.eqbrl", { v: fmt(toBrl(g.eur), "BRL") }) : t("co.eqeur", { v: fmt(g.eur, "EUR") });
+  }
+  renderFields();
+}
+
+function renderFields() {
+  const amt = amountNow();
+  const ref = (lang === "pt" ? "Presente " : "Gift ") + current[lang][0];
+  const rows = currency === "EUR"
+    ? [["f.amount", fmt(amt, "EUR")], ["f.holder", CONFIG.eur.holder], ["f.iban", CONFIG.eur.iban], ["f.bic", CONFIG.eur.bic], ["f.bank", CONFIG.eur.bank], ["f.ref", ref]]
+    : [["f.amount", fmt(amt, "BRL")], ["f.pixcode", pixCode(amt, ref)], ["f.pix", CONFIG.brl.pixKey], ["f.holder", CONFIG.brl.holder], ["f.bank", CONFIG.brl.bank]];
+  const sample = currency === "EUR" ? CONFIG.eur.sample : CONFIG.brl.sample;
+  const box = $("fields"); box.innerHTML = "";
+  if (sample) { const s = document.createElement("p"); s.className = "sample"; s.textContent = "● " + t("sample"); box.appendChild(s); }
+  if (currency === "BRL") {
+    const q = document.createElement("div"); q.className = "qr";
+    try { const qr = qrcode(0, "M"); qr.addData(rows[1][1]); qr.make(); q.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); } catch (e) { /* sem QR: fica o copia e cola */ }
+    const h = document.createElement("p"); h.textContent = t("co.pixhint"); q.appendChild(h);
+    box.appendChild(q);
+  }
+  rows.forEach(([k, v], i) => {
+    const d = document.createElement("div"); d.className = "field" + (k === "f.pixcode" ? " clamp" : "");
+    const id = "fv-" + i;
+    d.innerHTML = `<label for="${id}"></label><output id="${id}"></output><button type="button" class="copy"></button>`;
+    d.querySelector("label").textContent = t(k);
+    d.querySelector("output").textContent = v;
+    const btn = d.querySelector("button");
+    btn.textContent = t("co.copy");
+    btn.addEventListener("click", () => copyText(k === "f.amount" ? String(amt) : v, btn, d.querySelector("output")));
+    box.appendChild(d);
+  });
+  box.dataset.all = rows.map(([k, v]) => `${t(k)}: ${v}`).join("\n");
+}
+
+/* Pix copia e cola (BR Code do Banco Central) com valor e mensagem */
+const crc16 = (s) => { let c = 0xFFFF; for (let i = 0; i < s.length; i++) { c ^= s.charCodeAt(i) << 8; for (let j = 0; j < 8; j++) { c = (c & 0x8000) ? ((c << 1) ^ 0x1021) : (c << 1); c &= 0xFFFF; } } return c.toString(16).toUpperCase().padStart(4, "0"); };
+const emv = (id, v) => id + String(v.length).padStart(2, "0") + v;
+const ascii = (s, n) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z0-9 .\-]/g, "").trim().slice(0, n);
+function pixCode(amount, message) {
+  let acc = emv("00", "br.gov.bcb.pix") + emv("01", CONFIG.brl.pixKey);
+  const msg = ascii(message || "", Math.min(40, 99 - acc.length - 4));
+  if (msg) acc += emv("02", msg);
+  let p = emv("00", "01") + emv("26", acc) + emv("52", "0000") + emv("53", "986");
+  if (amount > 0) p += emv("54", Number(amount).toFixed(2));
+  p += emv("58", "BR") + emv("59", ascii(CONFIG.brl.holder, 25).toUpperCase()) + emv("60", ascii(CONFIG.brl.city, 15).toUpperCase()) + emv("62", emv("05", "***")) + "6304";
+  return p + crc16(p);
+}
+
+function copyText(text, btn, fallbackEl) {
+  const ok = () => { btn.classList.add("done"); const old = btn.textContent; btn.textContent = t("co.copied"); setTimeout(() => { btn.classList.remove("done"); btn.textContent = btn.id === "copy-all" ? t("co.copyall") : t("co.copy"); }, 1600); };
+  const fallback = () => { if (fallbackEl) { const r = document.createRange(); r.selectNodeContents(fallbackEl); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } };
+  try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+}
+
+function tick() {
+  const ms = new Date(CONFIG.weddingDate) - new Date();
+  const m = Math.max(0, Math.floor(ms / 60000));
+  $("married").hidden = ms > 0;
+  $("countdown").hidden = ms <= 0;
+  $("cd-days").textContent = Math.floor(m / 1440);
+  $("cd-hours").textContent = Math.floor((m % 1440) / 60);
+  $("cd-mins").textContent = m % 60;
+}
+
+function renderGallery() {
+  const g = $("gallery");
+  CONFIG.photos.forEach(src => {
+    const d = document.createElement("div"); d.className = "photo has-img";
+    d.innerHTML = `<img src="${src}" alt="Vinícius &amp; Gabriela" loading="lazy">`;
+    g.appendChild(d);
+  });
+}
+
+async function loadRate() {
+  try {
+    const r = await fetch("https://api.frankfurter.app/latest?from=EUR&to=BRL");
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    if (j && j.rates && j.rates.BRL) {
+      rate = j.rates.BRL; rateLive = true;
+      rateDate = new Date(j.date + "T12:00:00").toLocaleDateString(lang === "pt" ? "pt-BR" : "en-IE");
+      renderGifts(); renderRate(); if (current) renderSheet();
+    }
+  } catch (e) { /* fica a cotação de referência */ }
+}
+
+/* eventos */
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang; try { localStorage.setItem("gv-lang", lang); } catch (e) {}
+  applyLang();
+}));
+document.querySelectorAll(".cur button").forEach(b => b.addEventListener("click", () => {
+  const prev = currency; currency = b.dataset.cur;
+  if (current && current.eur == null && prev !== currency) {
+    const v = Number($("free-input").value) || 0;
+    $("free-input").value = currency === "BRL" ? Math.round(v * rate) : Math.round(v / rate);
+  }
+  renderSheet();
+}));
+$("free-input").addEventListener("input", renderFields);
+$("close").addEventListener("click", closeSheet);
+$("scrim").addEventListener("click", (e) => { if (e.target === $("scrim")) closeSheet(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && current) closeSheet(); });
+$("copy-all").addEventListener("click", () => copyText($("fields").dataset.all, $("copy-all"), $("fields")));
+
+if (CONFIG.rsvpUrl) $("rsvp-link").href = CONFIG.rsvpUrl; else $("rsvp-link").removeAttribute("target");
+$("map-link").href = CONFIG.mapUrl;
+document.documentElement.dataset.version = CONFIG.version;
+
+/* Menu: destaca a seção que está na tela */
+const navLinks = [...document.querySelectorAll(".nav a")];
+const navSections = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+let spyQueued = false;
+function spy() {
+  spyQueued = false;
+  const line = document.querySelector(".topbar").offsetHeight + 80;
+  let current = -1;
+  navSections.forEach((sec, i) => { if (sec && sec.getBoundingClientRect().top <= line) current = i; });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = navSections.length - 1;
+  navLinks.forEach((a, i) => a.classList.toggle("active", i === current));
+}
+window.addEventListener("scroll", () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+
+renderGallery(); applyLang(); tick(); setInterval(tick, 30000); loadRate(); spy();
+</script>
+
+</body>
+</html>
