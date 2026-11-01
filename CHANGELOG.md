@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.13 — 01/11/2026
+- Desfeita a v0.3.12: presentes voltaram com os valores e clicáveis (sem "Esgotado") e o texto da seção de presentes voltou ao anterior. Site igual à v0.3.11.
+
 ## v0.3.12 — 01/11/2026
 - Presentes esgotados: todos os itens da lista aparecem como "Esgotado" ("Sold out" em inglês), com a foto em preto e branco, sem o valor e sem clique. Só o "Valor livre" fica disponível, com borda bordô em destaque.
 - Pra voltar um presente pra lista, é só apagar o `soldOut: true` dele no CONFIG.
