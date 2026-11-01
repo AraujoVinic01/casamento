@@ -365,7 +365,7 @@ footer .sign { font-family: var(--script); font-size: 40px; line-height: 1.2; co
    CONFIGURAÇÃO — edite só esta parte
    ============================================================ */
 const CONFIG = {
-  version: "v0.3.6",
+  version: "v0.3.7",
   weddingDate: "2026-11-21T16:00:00+00:00",
   rsvpUrl: "https://form.jotform.com/262646296951065",                 // link do formulário Jotform (o mesmo do QR impresso)
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Cloonacauneen+Castle+Tuam+Road+Galway+H91+XY77",
@@ -612,17 +612,26 @@ function renderGallery() {
   });
 }
 
+/* Cotação do dia (EUR→BRL): tenta 3 fontes gratuitas; se nenhuma responder, fica a cotação de referência */
+const RATE_SOURCES = [
+  ["https://api.frankfurter.dev/v1/latest?base=EUR&symbols=BRL", j => [j.rates && j.rates.BRL, j.date]],
+  ["https://api.frankfurter.app/latest?from=EUR&to=BRL", j => [j.rates && j.rates.BRL, j.date]],
+  ["https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.min.json", j => [j.eur && j.eur.brl, j.date]],
+];
 async function loadRate() {
-  try {
-    const r = await fetch("https://api.frankfurter.app/latest?from=EUR&to=BRL");
-    if (!r.ok) throw 0;
-    const j = await r.json();
-    if (j && j.rates && j.rates.BRL) {
-      rate = j.rates.BRL; rateLive = true;
-      rateDate = new Date(j.date + "T12:00:00").toLocaleDateString(lang === "pt" ? "pt-BR" : "en-IE");
-      renderGifts(); renderRate(); if (current) renderSheet();
-    }
-  } catch (e) { /* fica a cotação de referência */ }
+  for (const [url, pick] of RATE_SOURCES) {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) continue;
+      const [v, d] = pick(await r.json());
+      if (typeof v === "number" && v > 3 && v < 15) {   // trava contra valor absurdo
+        rate = v; rateLive = true;
+        rateDate = d ? new Date(d + "T12:00:00").toLocaleDateString(lang === "pt" ? "pt-BR" : "en-IE") : "";
+        renderGifts(); renderRate(); if (current) renderSheet();
+        return;
+      }
+    } catch (e) { /* tenta a próxima */ }
+  }
 }
 
 /* eventos */

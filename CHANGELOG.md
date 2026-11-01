@@ -1,5 +1,8 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.7 — 01/11/2026
+- Cotação do dia mais confiável: tenta 3 fontes gratuitas (Frankfurter novo, Frankfurter antigo e currency-api) antes de usar a cotação de referência. Afeta só o valor em reais dentro do Pix.
+
 ## v0.3.6 — 01/11/2026
 - Site mostra só euro, inclusive na opção Real. O valor em reais existe apenas dentro do QR Code / Pix copia e cola: a pessoa só vê o R$ no app do banco.
 - Pix: saíram a linha "Valor R$" e a cotação; o código copia e cola não aparece na tela (botão Copiar continua copiando o código completo).
