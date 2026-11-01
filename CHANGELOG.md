@@ -1,5 +1,9 @@
 # Histórico de versões — site Vinícius & Gabriela
 
+## v0.3.2 — 01/11/2026
+- Correção urgente: a v0.3.1 tinha uma vírgula faltando na lista de presentes, o que parou o código do site (sem fotos, presentes e galeria). Corrigido.
+- build.sh agora checa o código antes de gerar a versão de hospedagem.
+
 ## v0.3.1 — 01/11/2026
 - "Valor livre" / "Any amount" passa a ser o primeiro presente da lista.
 
